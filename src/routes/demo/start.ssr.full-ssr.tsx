@@ -2,27 +2,19 @@ import { createFileRoute, notFound } from "@tanstack/react-router";
 import { getPunkSongs } from "@/data/demo.punk-songs";
 
 export const Route = createFileRoute("/demo/start/ssr/full-ssr")({
-  component: RouteComponent,
+  component: RouteComponent,  
   loader: async () => {
     throw notFound();
     return await getPunkSongs();
   },
   notFoundComponent: () => (
-    <div
-      className="flex items-center justify-center min-h-screen bg-gradient-to-br from-zinc-800 to-black p-4 text-white"
-      style={{
-        backgroundImage:
-          "radial-gradient(50% 50% at 20% 60%, #1a1a1a 0%, #0a0a0a 50%, #000000 100%)",
-      }}
-    >
-      <div className="w-full max-w-2xl p-8 rounded-xl backdrop-blur-md bg-black/50 shadow-xl border-8 border-black/10">
-        <h1 className="text-3xl font-bold mb-6 text-red-400">
+    <div className="wi-full flex flex-col items-center align-center mt-100">
+      <h1 className="text-3xl font-bold mb-6 text-red-400">
           404 - Not Found
         </h1>
-        <p className="text-white/80">
+        <p className="text-red-400">
           The requested resource could not be found.
         </p>
-      </div>
     </div>
   ),
 });
